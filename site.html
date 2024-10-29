@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universo Personalizado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+        
+  
+</head>
+<body>
+    <header>
+        <h1>Universo Personalizado</h1>
+        <p>Encontre a caneca perfeita para o seu estilo!</p>
+    </header>
+
+    <div class="container">
+        <div class="grid" id="canecasContainer"></div>
+    </div>
+
+      <script>
+        const canecasData = [
+            {
+                "imagem": "caneca1.jpg",
+                "titulo": "Caneca Floral",
+                "descricao": "Ideal para os amantes da natureza.",
+                "preco": "R$ 35,00"
+            },
+            {
+                "imagem": "caneca2.jpg",
+                "titulo": "Caneca Geek",
+                "descricao": "Para os apaixonados por tecnologia.",
+                "preco": "R$ 40,00"
+            },
+            {
+                "imagem": "caneca3.jpg",
+                "titulo": "Caneca Minimalista",
+                "descricao": "Estilo e simplicidade para o seu café.",
+                "preco": "R$ 30,00"
+            }
+        ];
+
+        function renderizarCanecas(canecas) {
+            const container = document.getElementById('canecasContainer');
+            canecas.forEach((caneca, index) => {
+                const item = document.createElement('div');
+                item.classList.add('item');
+                item.innerHTML = `
+                    <img src="${caneca.imagem}" alt="${caneca.titulo}">
+                    <h3>${caneca.titulo}</h3>
+                    <p>${caneca.descricao}</p>
+                    <p class="price">${caneca.preco}</p>
+                    <a href="detalhes.html?imagem=${encodeURIComponent(caneca.imagem)}&titulo=${encodeURIComponent(caneca.titulo)}&descricao=${encodeURIComponent(caneca.descricao)}&preco=${encodeURIComponent(caneca.preco)}" class="buy-btn">Comprar</a>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        renderizarCanecas(canecasData);
+    </script>
+</body>
+</html>
