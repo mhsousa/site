@@ -26,7 +26,7 @@ body {
             font-weight: 300;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 160px auto 20px; /* Aumentado para compensar a altura do header */
             padding: 20px;
             background-color: #fff;
